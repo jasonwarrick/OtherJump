@@ -131,6 +131,7 @@ MonoBehaviour:
   speed: 8
   jumpingPower: 16
   floatingPower: 0.5
+  groundSlide: 0.2
   rb: {fileID: 872325839562519761}
   groundCheck: {fileID: 4102928536415846342}
   groundCheckSize: 0.2
