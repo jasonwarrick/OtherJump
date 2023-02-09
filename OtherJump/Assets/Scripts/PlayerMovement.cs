@@ -40,24 +40,25 @@ public class PlayerMovement : MonoBehaviour // Basic player controller code take
         rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
     }
 
-    void FixedUpdate()
-    {
+    void FixedUpdate() {
+        AnimatePlayer();
         Vector2 inputSpeed = new Vector2(horizontal * speed, rb.velocity.y);
         rb.velocity = Vector2.Lerp(rb.velocity, inputSpeed, groundSlide);
-        AnimatePlayer();
     }
 
     void AnimatePlayer() {
-        
-
-        if (rb.velocity.y > 0) {
-            animator.SetTrigger("Jump");
-        } else if (rb.velocity.y < 0) {
-            animator.SetTrigger("Fall");
-        } else if (rb.velocity.x < -0.1f || rb.velocity.x > 0.1f) {
-            animator.SetTrigger("Run");
-        } else { 
-            animator.SetTrigger("Idle");
+        if (IsGrounded()) {
+            if (rb.velocity.x < -0.1f || rb.velocity.x > 0.1f) {
+                animator.SetTrigger("Run");
+            } else { 
+                animator.SetTrigger("Idle");
+            }
+        } else {
+            if (rb.velocity.y > 0) {
+                animator.SetTrigger("Jump");
+            } else if (rb.velocity.y < 0) {
+                animator.SetTrigger("Fall");
+            }
         }
     }
 
