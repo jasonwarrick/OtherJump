@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour // Basic player controller code take
     [SerializeField] float groundCheckSize = 0.2f;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Animator animator;
+    [SerializeField] ParticleSystem playerTrail;
 
     void Update() {
         horizontal = Input.GetAxisRaw("Horizontal");
@@ -44,6 +45,12 @@ public class PlayerMovement : MonoBehaviour // Basic player controller code take
         AnimatePlayer();
         Vector2 inputSpeed = new Vector2(horizontal * speed, rb.velocity.y);
         rb.velocity = Vector2.Lerp(rb.velocity, inputSpeed, groundSlide);
+
+        if (rb.velocity.x < -1.5f || rb.velocity.x > 1.5f || rb.velocity.y < -1.5f || rb.velocity.y > 1.5f) {
+            playerTrail.Play();
+        } else {
+            playerTrail.Stop();
+        }
     }
 
     void AnimatePlayer() {
