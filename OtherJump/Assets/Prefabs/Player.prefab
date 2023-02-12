@@ -136,7 +136,7 @@ MonoBehaviour:
   groundSlide: 0.35
   rb: {fileID: 872325839562519761}
   groundCheck: {fileID: 4102928536415846342}
-  groundCheckSize: 0.2
+  groundCheckSize: 0.5
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
