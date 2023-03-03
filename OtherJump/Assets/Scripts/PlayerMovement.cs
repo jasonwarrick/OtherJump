@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour // Basic player controller code take
     [SerializeField] float groundSlide = 0.2f; // Rate at which the player speeds up and slows down right after button press and release
     int jumpPods = 0; // Int that gets increased for every available additional jump
     bool isFacingRight = true;
+    public float additionalVel = 0f;
 
     [SerializeField] Rigidbody2D rb;
     [SerializeField] Transform groundCheck;
@@ -43,7 +44,7 @@ public class PlayerMovement : MonoBehaviour // Basic player controller code take
 
     void FixedUpdate() {
         AnimatePlayer();
-        Vector2 inputSpeed = new Vector2(horizontal * speed, rb.velocity.y);
+        Vector2 inputSpeed = new Vector2(horizontal * speed + additionalVel, rb.velocity.y);
         rb.velocity = Vector2.Lerp(rb.velocity, inputSpeed, groundSlide);
 
         if (rb.velocity.x < -1.5f || rb.velocity.x > 1.5f || rb.velocity.y < -1.5f || rb.velocity.y > 1.5f) {
