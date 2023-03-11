@@ -31,9 +31,9 @@ public class PlayerMovement : MonoBehaviour // Basic player controller code take
             jumpPods -= 1;
         }
 
-        if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f) {
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * floatingPower);
-        }
+        // if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f) {
+        //     rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * floatingPower);
+        // }
 
         Flip();
     }

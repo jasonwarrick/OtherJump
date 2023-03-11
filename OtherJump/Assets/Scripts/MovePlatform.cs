@@ -37,7 +37,6 @@ public class MovePlatform : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other) {
-        Debug.Log("Collision");
         if (other.gameObject.tag == "Player") {
             playerTouching = true;
             player = other.gameObject;
@@ -49,12 +48,6 @@ public class MovePlatform : MonoBehaviour
         if (other.gameObject.tag == "Player") {
             playerTouching = false;
             player.transform.parent = null;
-        }
-    }
-
-    void Update() {
-        if (playerTouching) {
-            Debug.Log("Touching");
         }
     }
 
