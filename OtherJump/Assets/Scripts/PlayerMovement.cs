@@ -17,8 +17,13 @@ public class PlayerMovement : MonoBehaviour // Basic player controller code take
     [SerializeField] Transform groundCheck;
     [SerializeField] float groundCheckSize = 0.2f;
     [SerializeField] LayerMask groundLayer;
+    [SerializeField] LayerMask spikeLayer;
     [SerializeField] Animator animator;
     [SerializeField] ParticleSystem playerTrail;
+
+    void Start() {
+        Spike.PlayerDeath += Die;
+    }
 
     void Update() {
         horizontal = Input.GetAxisRaw("Horizontal");
@@ -85,5 +90,9 @@ public class PlayerMovement : MonoBehaviour // Basic player controller code take
             localScale.x *= -1f;
             transform.localScale = localScale;
         }
+    }
+
+    void Die() {
+        Debug.Log("Player is dead");
     }
 }

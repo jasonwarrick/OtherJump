@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {   
@@ -14,6 +14,7 @@ public class LevelManager : MonoBehaviour
     void Start() {
         DontDestroyOnLoad(gameObject);
         PauseGame();
+        Spike.PlayerDeath += ResetLevel;
     }
 
     // Update is called once per frame
@@ -33,5 +34,9 @@ public class LevelManager : MonoBehaviour
         } else {
             Time.timeScale = 1;
         }
+    }
+
+    void ResetLevel() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
