@@ -5,40 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {   
-    [SerializeField] Canvas pausedCanvas;
     PlayerMovement playerMovement;
 
     int currentBuildIndex;
-    bool paused = true;
     
     // Start is called before the first frame update
     void Start() {
         DontDestroyOnLoad(gameObject);
-        PauseGame();
         Spike.PlayerDeath += ResetLevel;
         currentBuildIndex = SceneManager.GetActiveScene().buildIndex;
     }
 
     // Update is called once per frame
     void Update() {
-        if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape)) {
-            PauseGame();
-        }
-
         if (Input.GetKeyDown(KeyCode.N)) {
             NextLevel();
-        }
-    }
-
-    void PauseGame() {
-        paused = !paused;
-        pausedCanvas.enabled = paused;
-        FindObjectOfType<PlayerMovement>().enabled = !paused;
-
-        if (paused) {
-            Time.timeScale = 0;
-        } else {
-            Time.timeScale = 1;
         }
     }
 
@@ -61,7 +42,5 @@ public class LevelManager : MonoBehaviour
             SceneManager.LoadScene(currentBuildIndex + 1);
             Debug.Log(currentBuildIndex + 1);
         }
-        
-        // currentBuildIndex = SceneManager.GetActiveScene().buildIndex;
     }
 }
