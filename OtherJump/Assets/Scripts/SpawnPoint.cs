@@ -11,12 +11,6 @@ public class SpawnPoint : MonoBehaviour
         SpawnPlayer();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void SpawnPlayer() {
         GameObject playerInstance = Instantiate(player, gameObject.transform);
     }

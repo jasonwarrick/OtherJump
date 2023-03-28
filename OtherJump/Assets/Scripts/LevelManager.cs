@@ -27,7 +27,7 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    void SetLevel(int index) {
+    public void SetLevel(int index) {
         if (index > SceneManager.sceneCountInBuildSettings) {
             SceneManager.LoadScene(index);
             currentBuildIndex = SceneManager.GetActiveScene().buildIndex;

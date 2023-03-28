@@ -2,10 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
     [SerializeField] Canvas pausedCanvas;
+    [SerializeField] Canvas mainCanvas;
+    [SerializeField] Canvas levelCanvas;
+
     [SerializeField] GameObject pauseFirstButton; // All menu navigation code adapted from: https://www.youtube.com/watch?v=SXBgBmUcTe0
     
     bool paused = false;
@@ -14,6 +18,9 @@ public class MenuManager : MonoBehaviour
     void Start() {
         DontDestroyOnLoad(gameObject);
         pausedCanvas.enabled = false;
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneAt(0)) {
+            Debug.Log("Main menu");
+        }
     }
 
     // Update is called once per frame
