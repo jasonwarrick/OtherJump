@@ -134,12 +134,16 @@ MonoBehaviour:
   jumpingPower: 20
   floatingPower: 0.5
   groundSlide: 0.35
+  additionalVel: 0
   rb: {fileID: 872325839562519761}
   groundCheck: {fileID: 4102928536415846342}
   groundCheckSize: 0.5
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  spikeLayer:
+    serializedVersion: 2
+    m_Bits: 0
   animator: {fileID: 1151643427576029570}
   playerTrail: {fileID: 2763294328127809753}
 --- !u!50 &872325839562519761

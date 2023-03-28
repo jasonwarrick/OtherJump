@@ -34,7 +34,7 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    void NextLevel() {
+    public void NextLevel() {
         if (currentBuildIndex + 1 > SceneManager.sceneCountInBuildSettings - 1) {
             SceneManager.LoadScene(0);
             return;
