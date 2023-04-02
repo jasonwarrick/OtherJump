@@ -18,11 +18,10 @@ public class MenuManager : MonoBehaviour
     
     // Start is called before the first frame update
     void Start() {
-        DontDestroyOnLoad(gameObject);
+        
         pausedCanvas.enabled = false;
-        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(0)) {
+        if (SceneManager.GetActiveScene().buildIndex == 0) {
             ToggleCanvas(0); // Show main menu if in the correct scene
-            Debug.Log("Main");
         } else {
             ToggleCanvas(-1); // Hide all canvases if in any other scene
         }
@@ -30,7 +29,7 @@ public class MenuManager : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-        if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape)) {
+        if (SceneManager.GetActiveScene().buildIndex != 0 && Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape)) {
             PauseGame();
         }
     }
@@ -70,13 +69,14 @@ public class MenuManager : MonoBehaviour
         
     }
 
-
-
     public void Options() {
         Debug.Log("Options");
     }
 
     public void Quit() {
-        Debug.Log("Quit");
+        paused = !paused;
+        Time.timeScale = 1;
+        ToggleCanvas(0); // Hide paused canvas
+        Debug.Log("quit");
     }
 }

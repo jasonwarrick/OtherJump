@@ -11,7 +11,7 @@ public class LevelManager : MonoBehaviour
     
     // Start is called before the first frame update
     void Start() {
-        DontDestroyOnLoad(gameObject);
+        Debug.Log(SceneManager.sceneCountInBuildSettings);
         Spike.PlayerDeath += ResetLevel;
         currentBuildIndex = SceneManager.GetActiveScene().buildIndex;
     }
@@ -19,7 +19,7 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update() {
         if (Input.GetKeyDown(KeyCode.N)) {
-            NextLevel();
+            SetLevel(currentBuildIndex + 1);
         }
     }
 
@@ -30,12 +30,15 @@ public class LevelManager : MonoBehaviour
     public void SetLevel(int index) {
         if (index < SceneManager.sceneCountInBuildSettings) {
             SceneManager.LoadScene(index);
+            currentBuildIndex = index;
+        } else {
+            SceneManager.LoadScene(0);
             currentBuildIndex = SceneManager.GetActiveScene().buildIndex;
         }
     }
 
     public void NextLevel() {
-        if (currentBuildIndex + 1 > SceneManager.sceneCountInBuildSettings - 1) {
+        if (currentBuildIndex + 1 > SceneManager.sceneCountInBuildSettings) {
             SceneManager.LoadScene(0);
             return;
         } else {
