@@ -9,7 +9,9 @@ public class PlayerMovement : MonoBehaviour // Basic player controller code take
     [SerializeField] float jumpingPower = 16f;
     [SerializeField] float floatingPower = 0.5f;
     [SerializeField] float groundSlide = 0.2f; // Rate at which the player speeds up and slows down right after button press and release
-    int jumpPods = 0; // Int that gets increased for every available additional jump
+    [SerializeField] List<GameObject> jumpPods = new List<GameObject>(); // Int that gets increased for every available additional jump
+    [SerializeField] GameObject[] podSprites = new GameObject[3];
+    [SerializeField] int maxPods = 3;
     bool isFacingRight = true;
     public float additionalVel = 0f;
 
@@ -23,6 +25,7 @@ public class PlayerMovement : MonoBehaviour // Basic player controller code take
 
     void Start() {
         Spike.PlayerDeath += Die;
+        UpdatePodSprites();
     }
 
     void Update() {
@@ -31,9 +34,11 @@ public class PlayerMovement : MonoBehaviour // Basic player controller code take
         if (Input.GetButtonDown("Jump") && IsGrounded()) {
             Jump();
         }
-        else if (Input.GetButtonDown("Jump") && jumpPods > 0) {
+        else if (Input.GetButtonDown("Jump") && jumpPods.Count > 0) {
             Jump();
-            jumpPods -= 1;
+            jumpPods[0].GetComponent<JumpPod>().reset = true;
+            jumpPods.RemoveAt(0);
+            UpdatePodSprites();
         }
 
         // if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f) {
@@ -75,12 +80,30 @@ public class PlayerMovement : MonoBehaviour // Basic player controller code take
         }
     }
 
+    void UpdatePodSprites() {
+        for (int i = 0; i < 3; i++) {
+            if (i < jumpPods.Count) {
+                Debug.Log("set");
+                podSprites[i].SetActive(true);
+            } else {
+                podSprites[i].SetActive(false);
+            }
+            
+        }
+    }
+
     bool IsGrounded() {
         return Physics2D.OverlapCircle(groundCheck.position, groundCheckSize, groundLayer);
     }
 
-    public void IncJumpPods() {
-        jumpPods += 1;
+    public bool IncJumpPods(GameObject pod) {
+        if (jumpPods.Count + 1 <= maxPods) { // If the max pods count won't be reached, tell the pod that it was picked up successfully, and add it to the list
+            jumpPods.Add(pod);
+            UpdatePodSprites();
+            return true;
+        }
+
+        return false;
     }
 
     void Flip() {

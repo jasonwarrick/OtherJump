@@ -10,13 +10,13 @@ public class JumpPod : MonoBehaviour
     
     [SerializeField] float respawnTime = 5f;
     float timeCounter = 0f;
-    bool reset = false;
+    public bool reset = false;
 
     void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.tag == "Player") {
-            other.gameObject.GetComponent<PlayerMovement>().IncJumpPods();
-            SetBox();
-            reset = true;
+            if (other.gameObject.GetComponent<PlayerMovement>().IncJumpPods(gameObject)) { // Only disable the pod if it was added successfully
+                SetBox();
+            }        
         }
     }
 
