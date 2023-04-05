@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class Spike : MonoBehaviour
 {
-    public delegate void DeathAction();
-    public static event DeathAction PlayerDeath; // Create the player death event
+    LevelManager levelManager;
 
     // Start is called before the first frame update
     void Start() {
-        
+        levelManager = FindObjectOfType<LevelManager>();
     }
 
     void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.tag == "Player" && PlayerDeath != null) {
-            PlayerDeath();
+        if (other.gameObject.tag == "Player") {
+            levelManager.ResetLevel();
         }
     }
 }

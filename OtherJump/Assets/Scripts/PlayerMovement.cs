@@ -24,7 +24,6 @@ public class PlayerMovement : MonoBehaviour // Basic player controller code take
     [SerializeField] ParticleSystem playerTrail;
 
     void Start() {
-        Spike.PlayerDeath += Die;
         UpdatePodSprites();
     }
 
