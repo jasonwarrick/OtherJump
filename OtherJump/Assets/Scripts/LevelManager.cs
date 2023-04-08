@@ -37,12 +37,6 @@ public class LevelManager : MonoBehaviour
     }
 
     public void NextLevel() {
-        if (currentBuildIndex + 1 > SceneManager.sceneCountInBuildSettings) {
-            SceneManager.LoadScene(0);
-            return;
-        } else {
-            SceneManager.LoadScene(currentBuildIndex + 1);
-            Debug.Log(currentBuildIndex + 1);
-        }
+        SetLevel(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

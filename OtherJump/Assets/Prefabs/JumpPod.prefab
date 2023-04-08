@@ -124,4 +124,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sr: {fileID: 6324550165611408557}
   bc: {fileID: 6324550165611408556}
-  respawnTime: 5
+  respawnTime: 1
+  reset: 0
