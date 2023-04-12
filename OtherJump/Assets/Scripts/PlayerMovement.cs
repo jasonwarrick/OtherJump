@@ -38,6 +38,7 @@ public class PlayerMovement : MonoBehaviour // Basic player controller code take
             jumpPods[0].GetComponent<JumpPod>().reset = true;
             jumpPods.RemoveAt(0);
             UpdatePodSprites();
+            Debug.Log("Used");
         }
 
         // if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f) {
@@ -99,6 +100,7 @@ public class PlayerMovement : MonoBehaviour // Basic player controller code take
         if (jumpPods.Count + 1 <= maxPods) { // If the max pods count won't be reached, tell the pod that it was picked up successfully, and add it to the list
             jumpPods.Add(pod);
             UpdatePodSprites();
+            Debug.Log("Picked");
             return true;
         }
 

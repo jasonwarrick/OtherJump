@@ -21,7 +21,6 @@ public class SoftPlatform : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other) { // Once the player steps on the platform
         if (!breaking) {
             breaking = true;
-            Debug.Log("breaking");
         }
     }
 

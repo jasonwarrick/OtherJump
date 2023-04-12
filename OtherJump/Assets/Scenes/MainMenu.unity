@@ -6416,6 +6416,10 @@ PrefabInstance:
       value: MenuManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2658373178052743410, guid: 9638993ec8c029045865f33276ca2dbd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658373178052743410, guid: 9638993ec8c029045865f33276ca2dbd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
       value: -1
       objectReference: {fileID: 0}

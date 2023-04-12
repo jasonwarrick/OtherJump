@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  jumpingPower: 20
+  jumpingPower: 21
   floatingPower: 0.5
   groundSlide: 0.35
   jumpPods: []
