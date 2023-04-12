@@ -73,6 +73,10 @@ public class MenuManager : MonoBehaviour
         Debug.Log("Options");
     }
 
+    public void Exit() {
+        Application.Quit();
+    }
+
     public void Quit() {
         paused = !paused;
         Time.timeScale = 1;
