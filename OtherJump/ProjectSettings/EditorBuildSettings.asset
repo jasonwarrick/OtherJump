@@ -12,18 +12,24 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Level1.unity
+    path: Assets/Scenes/First.unity
     guid: ee557a3eef184e644968a5bbd9843df5
   - enabled: 1
-    path: Assets/Scenes/Level2.unity
+    path: Assets/Scenes/Spikes.unity
     guid: da8f7a383671bf04eb8402acc6c1e72b
   - enabled: 1
-    path: Assets/Scenes/Level3.unity
+    path: Assets/Scenes/BouncePad.unity
     guid: 6bcd46f7d67154b48b14c1d013346470
   - enabled: 1
-    path: Assets/Scenes/Level4.unity
+    path: Assets/Scenes/MovePlatforms.unity
     guid: 1a68791015e351841a525a31acd47a7f
   - enabled: 1
-    path: Assets/Scenes/Level5.unity
+    path: Assets/Scenes/SoftPlatforms.unity
     guid: 93bc0883e7abfa743ba8b0de78954446
+  - enabled: 1
+    path: Assets/Scenes/SideBounce.unity
+    guid: ecfdc4e538eb9594eaa068054a7a758f
+  - enabled: 1
+    path: Assets/Scenes/DownUpDownUp.unity
+    guid: 17946957ee81aef4a9b82d424d050835
   m_configObjects: {}

@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {   
     PlayerMovement playerMovement;
+    [SerializeField] MenuManager menuManager;
 
     int currentBuildIndex;
     
@@ -32,6 +33,7 @@ public class LevelManager : MonoBehaviour
             currentBuildIndex = index;
         } else {
             SceneManager.LoadScene(0);
+            menuManager.ToggleCanvas(0);
             currentBuildIndex = SceneManager.GetActiveScene().buildIndex;
         }
     }
