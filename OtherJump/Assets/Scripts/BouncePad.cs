@@ -6,6 +6,7 @@ public class BouncePad : MonoBehaviour
 {
     [SerializeField] Animator animator;
     [SerializeField] Rigidbody2D playerRB;
+    [SerializeField] AudioSource bounceAudio;
 
     [SerializeField] float waitTime = 1f; // How long the pad waits to retract
     float counter = 0f;
@@ -17,6 +18,7 @@ public class BouncePad : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.tag == "Player") {
+            bounceAudio.Play();
             launched = true;
             playerRB = other.gameObject.GetComponent<Rigidbody2D>(); // Grab the player's rigidbody to make the code easier
 

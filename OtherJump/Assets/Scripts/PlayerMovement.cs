@@ -22,6 +22,8 @@ public class PlayerMovement : MonoBehaviour // Basic player controller code take
     [SerializeField] LayerMask spikeLayer;
     [SerializeField] Animator animator;
     [SerializeField] ParticleSystem playerTrail;
+    [SerializeField] AudioSource jumpAudio;
+    [SerializeField] AudioSource otherJumpAudio;
 
     void Start() {
         UpdatePodSprites();
@@ -32,9 +34,11 @@ public class PlayerMovement : MonoBehaviour // Basic player controller code take
 
         if (Input.GetButtonDown("Jump") && IsGrounded()) {
             Jump();
+            jumpAudio.Play();
         }
         else if (Input.GetButtonDown("Jump") && jumpPods.Count > 0) {
             Jump();
+            otherJumpAudio.Play();
             jumpPods[0].GetComponent<JumpPod>().reset = true;
             jumpPods.RemoveAt(0);
             UpdatePodSprites();
