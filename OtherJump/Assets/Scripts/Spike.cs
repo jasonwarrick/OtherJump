@@ -5,16 +5,17 @@ using UnityEngine;
 public class Spike : MonoBehaviour
 {
     LevelManager levelManager;
-    [SerializeField] AudioSource spikeAudio;
+    AudioManager audioManager;
 
     // Start is called before the first frame update
     void Start() {
         levelManager = FindObjectOfType<LevelManager>();
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.tag == "Player") {
-            spikeAudio.Play();
+            audioManager.Spike();
             levelManager.ResetLevel();
         }
     }
