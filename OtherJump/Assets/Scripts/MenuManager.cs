@@ -3,23 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class MenuManager : MonoBehaviour
 {
     [SerializeField] Canvas mainCanvas; // Index: 0
-    [SerializeField] Canvas levelCanvas; // Index: 1
     [SerializeField] Canvas pausedCanvas; // Index: 2
+    [SerializeField] TextMeshProUGUI levelSelection;
 
     [SerializeField] Canvas[] canvases;
 
     [SerializeField] GameObject pauseFirstButton; // All menu navigation code adapted from: https://www.youtube.com/watch?v=SXBgBmUcTe0
     
     bool paused = false;
-    
+    int sceneCount;
+    int currentSelection = 0;
+
     // Start is called before the first frame update
     void Start() {
-        
         pausedCanvas.enabled = false;
+        currentSelection = int.Parse(levelSelection.text);
+        sceneCount = SceneManager.sceneCountInBuildSettings;
+
         if (SceneManager.GetActiveScene().buildIndex == 0) {
             ToggleCanvas(0); // Show main menu if in the correct scene
         } else {
@@ -39,8 +44,9 @@ public class MenuManager : MonoBehaviour
         FindObjectOfType<PlayerMovement>().enabled = !paused;
 
         if (paused) {
+            Debug.Log("PauseGame");
             Time.timeScale = 0;
-            ToggleCanvas(2); // Show paused canvas
+            ToggleCanvas(1); // Show paused canvas
 
             // Clear current selected object (necessary for some reason)
             EventSystem.current.SetSelectedGameObject(null);
@@ -82,5 +88,17 @@ public class MenuManager : MonoBehaviour
         Time.timeScale = 1;
         ToggleCanvas(0); // Hide paused canvas
         Debug.Log("quit");
+    }
+
+    public void ChangeLevelSelection(bool up) {
+        if (up && currentSelection + 1 < sceneCount) {
+            currentSelection++;
+            levelSelection.text = currentSelection.ToString();
+        }
+
+        if (!up && currentSelection - 1 > 0) {
+            currentSelection--;
+            levelSelection.text = currentSelection.ToString();
+        }
     }
 }

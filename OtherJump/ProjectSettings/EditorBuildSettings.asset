@@ -27,9 +27,12 @@ EditorBuildSettings:
     path: Assets/Scenes/SoftPlatforms.unity
     guid: 93bc0883e7abfa743ba8b0de78954446
   - enabled: 1
+    path: Assets/Scenes/LotsOfPods.unity
+    guid: 9e8ad7f92fdc1014eb91c04a6dbc87c8
+  - enabled: 1
     path: Assets/Scenes/WaitForIt.unity
     guid: ecb8841d21fc9df4ca6d6c95ed786130
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SideBounce.unity
     guid: ecfdc4e538eb9594eaa068054a7a758f
   - enabled: 1
