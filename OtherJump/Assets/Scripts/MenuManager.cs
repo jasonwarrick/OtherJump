@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 using TMPro;
 
 public class MenuManager : MonoBehaviour
@@ -10,12 +11,16 @@ public class MenuManager : MonoBehaviour
     [SerializeField] Canvas mainCanvas; // Index: 0
     [SerializeField] Canvas pausedCanvas; // Index: 2
     [SerializeField] TextMeshProUGUI levelSelection;
+    [SerializeField] AudioMixer musicMixer;
+    [SerializeField] AudioMixer SFXMixer;
 
     [SerializeField] Canvas[] canvases;
 
     [SerializeField] GameObject pauseFirstButton; // All menu navigation code adapted from: https://www.youtube.com/watch?v=SXBgBmUcTe0
     
     bool paused = false;
+    bool music = true;
+    bool SFX = true;
     int sceneCount;
     int currentSelection = 0;
 
@@ -73,10 +78,6 @@ public class MenuManager : MonoBehaviour
             }
         }
         
-    }
-
-    public void Options() {
-        Debug.Log("Options");
     }
 
     public void Exit() {
