@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 using TMPro;
@@ -15,8 +14,6 @@ public class MenuManager : MonoBehaviour
     [SerializeField] AudioMixer SFXMixer;
 
     [SerializeField] Canvas[] canvases;
-
-    [SerializeField] GameObject pauseFirstButton; // All menu navigation code adapted from: https://www.youtube.com/watch?v=SXBgBmUcTe0
     
     bool paused = false;
     bool music = true;
@@ -26,6 +23,7 @@ public class MenuManager : MonoBehaviour
 
     // Start is called before the first frame update
     void Start() {
+        Cursor.lockState = CursorLockMode.None;
         pausedCanvas.enabled = false;
         currentSelection = int.Parse(levelSelection.text);
         sceneCount = SceneManager.sceneCountInBuildSettings;
@@ -49,15 +47,11 @@ public class MenuManager : MonoBehaviour
         FindObjectOfType<PlayerMovement>().enabled = !paused;
 
         if (paused) {
-            Debug.Log("PauseGame");
+            Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0;
             ToggleCanvas(1); // Show paused canvas
-
-            // Clear current selected object (necessary for some reason)
-            EventSystem.current.SetSelectedGameObject(null);
-            // Set the desired game object
-            EventSystem.current.SetSelectedGameObject(pauseFirstButton);
         } else {
+            Cursor.lockState = CursorLockMode.Locked;
             ToggleCanvas(-1); // Hide paused canvas
             Time.timeScale = 1;
         }
@@ -77,7 +71,6 @@ public class MenuManager : MonoBehaviour
                 canvases[i].enabled = false;
             }
         }
-        
     }
 
     public void Exit() {
@@ -88,7 +81,6 @@ public class MenuManager : MonoBehaviour
         paused = !paused;
         Time.timeScale = 1;
         ToggleCanvas(0); // Hide paused canvas
-        Debug.Log("quit");
     }
 
     public void ChangeLevelSelection(bool up) {

@@ -6400,6 +6400,10 @@ PrefabInstance:
       propertyPath: m_Text
       value: Exit
       objectReference: {fileID: 0}
+    - target: {fileID: 1517174486627579935, guid: 9638993ec8c029045865f33276ca2dbd, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -30
+      objectReference: {fileID: 0}
     - target: {fileID: 2658373178052743410, guid: 9638993ec8c029045865f33276ca2dbd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 7
@@ -6408,6 +6412,10 @@ PrefabInstance:
       propertyPath: menuManager
       value: 
       objectReference: {fileID: 1707936028}
+    - target: {fileID: 2911535179735806153, guid: 9638993ec8c029045865f33276ca2dbd, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -30
+      objectReference: {fileID: 0}
     - target: {fileID: 2911535179735806154, guid: 9638993ec8c029045865f33276ca2dbd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 3
@@ -6528,13 +6536,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6620765925422711447, guid: 9638993ec8c029045865f33276ca2dbd, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -34
+      objectReference: {fileID: 0}
     - target: {fileID: 6866029300427989372, guid: 9638993ec8c029045865f33276ca2dbd, type: 3}
       propertyPath: m_text
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6899590637322174930, guid: 9638993ec8c029045865f33276ca2dbd, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 6899590637601302434, guid: 9638993ec8c029045865f33276ca2dbd, type: 3}
       propertyPath: m_Text
       value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 6926506958806645277, guid: 9638993ec8c029045865f33276ca2dbd, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -30
       objectReference: {fileID: 0}
     - target: {fileID: 7131564460651428048, guid: 9638993ec8c029045865f33276ca2dbd, type: 3}
       propertyPath: canvases.Array.size
@@ -6547,6 +6567,10 @@ PrefabInstance:
     - target: {fileID: 7131564460770692885, guid: 9638993ec8c029045865f33276ca2dbd, type: 3}
       propertyPath: m_Text
       value: Resume
+      objectReference: {fileID: 0}
+    - target: {fileID: 7131564461054011749, guid: 9638993ec8c029045865f33276ca2dbd, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7131564461360613117, guid: 9638993ec8c029045865f33276ca2dbd, type: 3}
       propertyPath: m_IsActive

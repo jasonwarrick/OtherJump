@@ -27,15 +27,18 @@ EditorBuildSettings:
     path: Assets/Scenes/SoftPlatforms.unity
     guid: 93bc0883e7abfa743ba8b0de78954446
   - enabled: 1
-    path: Assets/Scenes/LotsOfPods.unity
-    guid: 9e8ad7f92fdc1014eb91c04a6dbc87c8
-  - enabled: 1
     path: Assets/Scenes/WaitForIt.unity
     guid: ecb8841d21fc9df4ca6d6c95ed786130
   - enabled: 1
-    path: Assets/Scenes/SideBounce.unity
-    guid: ecfdc4e538eb9594eaa068054a7a758f
+    path: Assets/Scenes/AccuracyTest.unity
+    guid: 70a98e99a6cd5f042b4cec98da0e8695
   - enabled: 1
     path: Assets/Scenes/DownUpDownUp.unity
     guid: 17946957ee81aef4a9b82d424d050835
+  - enabled: 1
+    path: Assets/Scenes/LotsOfPods.unity
+    guid: 9e8ad7f92fdc1014eb91c04a6dbc87c8
+  - enabled: 1
+    path: Assets/Scenes/SideBounce.unity
+    guid: ecfdc4e538eb9594eaa068054a7a758f
   m_configObjects: {}

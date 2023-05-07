@@ -47,6 +47,14 @@ public class LevelManager : MonoBehaviour
 
         SceneManager.LoadScene(levelNum);
         currentBuildIndex = levelNum;
+
+        if (levelNum == 0) {
+            Debug.Log("Show");
+            Cursor.lockState = CursorLockMode.None;
+        } else {
+            Debug.Log("Hidden");
+            Cursor.lockState = CursorLockMode.Locked;
+        }
     }
 
     public void NextLevel() {
